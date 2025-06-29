@@ -1,0 +1,4 @@
+# Ignore Backend-Implementations
+node_modules/
+
+# Other entries
