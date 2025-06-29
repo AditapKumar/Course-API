@@ -1,4 +1,5 @@
 # Ignore Backend-Implementations
 node_modules/
+.env
 
 # Other entries

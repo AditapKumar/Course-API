@@ -3,13 +3,13 @@ const categories = require("./routes/categories")
 const students = require("./routes/students")
 const mongoose = require("mongoose")
 const app = express()
-const port = 3000
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3000
+const mongoURL = process.env.MONGODB_URL_LOCAL;
 
 mongoose
-  .connect("mongodb://localhost:27017/miniProject1", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(mongoURL)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err))
 
@@ -17,6 +17,6 @@ app.use(express.json())
 app.use('/api/categories', categories);
 app.use('/api/students', students)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
